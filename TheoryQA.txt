@@ -1,0 +1,549 @@
+#Q1. What is Sql ? 
+
+-> SQL stand for Structured Query Language 
+-> Its a language to intract with the database 
+-> Using SQL we can do  many things 
+	-> We can executes queriex 
+	-> We can insert Records into a table 
+	-> We can Update Record 
+	-> We can create Database , Create Table and can delete Table 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>...
+
+#Q2. What is Database ? 
+
+-> Database is a like Container we can store collection of  data
+-> Its Also collection of Schama , table querys , views etc 
+-> Database help use to easily storing data 
+
+ 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>...
+
+#Q3. What are the difference between SQL and PL/SQL ? 
+
+
+SQL 							PL/SQL
+
+-> Sql is query execution or commanding language        -> PL/SQL is a complete Programming Lnaguage 
+-> Its used for Manipulating data 			-> Its used for Creating Applications
+-> Sql tells database what to do 			-> PL/SQL tells databases how to do 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>...
+
+#Q4. What is the difference between  BETWEEN and IN Operator  in SQL ? 
+
+
+ BETWEEN						 IN
+
+-> the BETWEEN Operator is used to fetch rows		-> The IN operators is used to check for values contained
+ based on range of values.				  in specific set
+ 
+->Examples 						-> Examples :
+
+	-> SELECT * from Students				-> SELECT * from Students WHERE ROLL_NO 
+	WHERE ROL_NO Between 20 and 30				IN (20,21,23)
+
+-> The query will select all those  rows from the       -> The query will select all those rows from table .
+ table. Student where the value of the field 		 Students where the value of the field ROLL_NO is 20,21,23 
+ROLL_NO lies between 20 and 30 or 20 to 30 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+#Q5. Write an SQL query to find the names of employees starting with "A"
+
+-> SELECT * FROM Students where name like "A%"
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q6.What is the difference between CHAR and VARCHAR2 datatype in SQL ? 
+
+CHAR 								VARCHAR2
+
+-> CHAR is a datatype in Sql					-> VARCHAR2 is also  datatype in sql 
+-> CHAR data type is fixed length 				-> VARCHAR2 data type is variable length 
+-> It means when we store a data in this field 			-> when we create a field and length is VARCHAR2(10) 
+ length is CHAR(10) if the data					 if we store a data and the length of data is 5 it will  
+ length is 5 like "hello" it will store Hello with 		stored 5 length da
+ addition (5 spaces) mean  it will stored 10 length data  
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q7. Name difference types of case manipulation function available in SQl ? 
+
+-> There anr 3 types of case available in SQl 
+	-> LOWER
+	-> UPPER
+	-> INITCAP
+
+
+-> LOWER : 
+	-> Lower mean its return a lowercase String or data 
+	-> It take a argument and return a lowercase string 
+	-> SELECT Lower(col) from table 
+
+-> UPPER : 
+	-> Upper mean its return a uppercase String or data 
+	-> It take a argument coverting data or string to Uppercase return it 
+	-> SELECT Upper(col) from table
+
+-> INITCAP : 
+	-> Initcap mean its return the string or datas first index or first letter capitaland another lowercase
+	-> it take a argument  a string and return the data is the first letter is uppercase and the rest of letter is lowercase
+	-> SELECT Initcap(col) from table 
+
+
+#Q8. What do you mean by data defination language ? 
+
+-> it can say DDL data defination Language 
+-> It allows us to queries like Create Drop and Alter  those are define the data 
+
+
+#Q9. What dou you mean by data manipulation language ? 
+
+-> It can say DML (data manipulation language)Its used to access or manpulate 
+-> Insert data or rows in database 
+-> Retrive or fetch data  from databse 
+-> Delete Data from the database 
+-> Update data in database 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q10. What is the difference between primary key and unique constraint ? 
+
+Primary Key							Unique 
+
+-> The primary key cant have null value				->The usique constraints can have null values
+->There only one primary key availble in one table 		-> There can be multiple unique constraints
+-> The primary key create automatically 			-> The uniques doesnot create autoatically 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q11. What is the view in SQL ? 
+
+-> Views in SQL are kind of Table 
+-> A view also have rows , columns they are on the table in database 
+-> Examples : 
+	-> Create view view_data as SELECT * from table
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+#Q12. What do you mean by foreign key ? 
+
+->Foreign key a set of colums its reffers to primary keyor unique key  of another table 
+-> Its createing a relationship  between  two tables known as parent-child relationship 
+-> Examples : create table orders 
+	o_id int not null , 
+	order_no int not null ,
+	c_id int,
+	primary key (o_id) , 
+	foreign key(c_id) references Customer table(cus_id)
+
+		  
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q13. What is a join in SQL  what are the types of join ? 
+
+-> A join statement is used to combine data or rows from two or more tables
+->Basically join 3 Types 
+	-> Inner Join 
+	-> left Join 
+	-> Right Join 
+
+-> Inner Join : 
+	-> Inner join Key word selects those rows which rows aavialable in 2 tables or commen rows 
+	-> Examples :
+		SELECT * from table1 INNER JOIN table2 on table1.col = table2.col 
+
+-> Left Join :- 
+	-> Left join key word those rows which rows available in left table and and these rows connect with 
+	second table 
+	-> Examples : 
+		SELECR * from table1 LEFT JOIN table2 on table1.col1 = table2.col
+
+-> Right Join : -
+
+	-> Right join key select those key which rows avialable in right table and these rows
+	 connct with left rows 
+	->Examples : 
+		SELECT * from table1 right join on table1.col1 = table2.col
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+
+#Q14. What is an index ? 
+
+-> Youtube -> https://youtu.be/xXtig5uLQS4
+-> Indexing  creating a lookup table with the column and the pointer to the memory location of the row, containing this column 
+-> The database is readeblility is high the we use indexing 
+-> How work Indexing :
+	-> first the seleceting  columns of this table then sorting the column value and store a indexing memory
+	-> when ever we select the query fst going to indexing then select the table row and return it  
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+
+#Q15. What are table and field ?
+
+ Table 					             Field
+
+-> Table has a combination of rows and column 	     -> Field is a particualr single column
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#Q16. What is Primary Key ? 
+
+-> Primary key is a unique key a one table 
+-> we can create one primary key in one table 
+-> we can join tables using primary key 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#Q17. What is a default Constraint ? 
+
+-> The DEFAULT constraint is used to fill the column with default and fixed value
+-> The default values added in all new record  if we dont give any input then the default value added there 
+-> Examples : 
+	-> Create Table table name (columnname  default "defaultvalue")
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#Q18. What is On delete cascade ? 
+
+-> The ON DELETE CASCADE constaint used to delete rows from the chiled table automaticaly when the 
+rows from parent table are deleted 
+
+-> Examples :
+	-> Create Table tablename (col1 
+		foreign key(col1) references parenttable(col) ON DELETE CASCADE 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#Q19.What is normalization ? 
+
+-> Normalization mean putting data in multiple tables to avoid redundancy
+->  if we have single table and we can devide a multiple table and storing data 
+-> like Employe and department in one table we can devide a 2 tables one is employe and another is department
+-> The normalization reduce the redundancy (Abasykanathiba)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#Q20 What is Denormalization ? 
+
+-> Denormalization mean it combine the data and organizes in a signle table 
+-> merge the multiple tableand adding in one table  
+->  
+-> Benifit : 
+	-> Fater data read operations
+	-> Management Convenience (subidha parichalana)
+	-> High data Availability 
+	-> Reduce the number of network calls to fetch the datafrom multiple places
+ 
+-> Challanges : -
+	->  Redundenty(wasted)data  -> wasted memory 
+	-> Its increases complexity(jatilata badhaye)
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+
+#Q21 . Write down various types of relationship in SQl ? 
+
+-> One-to-One  relationship 
+-> One-to-Many relationship 
+->Many-to-One Relationship 
+-> Self-references- relationship
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#Q22. What is query ? 
+
+-> Query is using to Retriving the data ond creating updating deleting the data from tables
+-> If we use query the servr is first and quickly function 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#Q23. What is Sub query ?
+
+-> Sub query is define insdie the query 
+-> Basicallly subquery define insdie the where clause 
+-> Example:- 
+	-> Select * from table where col(select * from table where col = "data")
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#Q24. What are the different operators available  in SQL ? 
+
+	-> Arithimatic Operators
+	->Logiccal Operatos
+	-> Comparison Operators 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+#25. What is the difference between DELETE and TRUNCATE commands ? 
+
+DELETE 							TRUNCATE 
+
+-> The DELETE statement removes rows one at a		-> TRUNCATE removes the all rows data in table   
+ time and records an entry in the transaction		
+ log for each deleted row 
+
+-> DELETE command is slower than the identity TRUNCATE  -> While the TRUNCATE command is a faster than the DELETE command 
+
+-> To use DELETE permission on the Table 		-> To use TRUNCATE  on a table we need at least ALTER permission on table 
+
+-> Example :						-> Examples :
+DELETE table from WHERE col = "data" 				TRUNCATE table tablename
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+
+#Q26. What is Constraint ? 
+
+-> Constraints are the rules that we can apply to the type of data in the table 
+-> We can store data in table specific limit 
+-> Type of Constraints : unique , null , not null,default etc 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+
+#Q27. What is Auto increaments ? 
+
+-> Sometimes while we create a table we give a column in primary key 
+-> when ever we  create a new data in table or new row that time the auto increments auto matically create primary key in every  new rows 
+-> Auto increment featres is supported by all the database ? 
+-> Create Table tablename(col primary key auto_increment )
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+
+#Q28 . What are the User-define Functions ? 
+
+-> SQL have many  user-define function and we can use every where 
+-> SELECT 
+-> WHERE 
+-> ORDER BY 
+-> GROUP BY 
+->VALUES 
+-> INSERT 
+-> UPDATE 
+-> SET 
+
+#Q29 Name the function which is used to remove spaces at the end of a string ? 
+
+-> we can use  TRIM function for removing space at the end
+-> SELECT trim("data") as column 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+
+#Q30. What are UNION , minus  and interact commands ? 
+
+-> UNION ;- 
+	-> This operations combined two table and return  data in one table 
+	-> The union operation cant showing duplicate values or data like tuple format 
+	Examples : 	
+		-> Select Customername from Depositor 
+			UNION
+		-> Select CustomerName from Borrower
+
+	-> In this example, the UNION operation combines the result sets of the two SELECT statements
+	 from table1 and table2 into a single result set, eliminating duplicate rows.
+
+	-> If we want to showing duplicate value in table then we can use UNION ALL operation 
+
+
+-> INTERSECT Operation :-
+
+	-> The INTERSECT operator returns the common rows that appear in the result sets of two or more SELECT statements.
+	-> It returns only the distinct rows that are present in all the result sets.
+ 
+	-> SELECT column1, column2 FROM table1
+		INTERSECT
+	SELECT column1, column2 FROM table2;
+	-> In this example, the INTERSECT operation returns only the rows that are common to both result sets from table1 and table2.
+
+-> EXCEPT :- 
+
+	->The EXCEPT (or MINUS) operator returns the rows that are present in the result set
+	 of the first SELECT statement but not in the result set of the second SELECT statement.
+	-> It returns only the distinct rows from the first result set.
+
+	-> EXAMPLES :
+	
+	->SELECT column1, column2 FROM table1
+		EXCEPT
+	SELECT column1, column2 FROM table2;
+	
+->	In this example, the EXCEPT operation returns only the rows that appear
+ in the first result set from table1 but are not present in the second result set from table2
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q31. What is an ALIAS command ?
+	
+-> Aliases are the given temporary name a tbale or column 
+-> like we can give nick name of this column or table  fro temporarly 
+-> when =ever our table or column name is too big tht time we can git alias name because we read properly 
+-> Its not changes permanatly in database or table 
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+#Q32. What is difference between TRUNCATE and  DROP ? 
+
+  TRUNCATE 							DROP 
+
+-> Its the used to remove all the rows in table not table   -> Its use to remove the table with all data 
+-> TRUNCATE command faster than both  DROP and DELETE  	    -> DROP is slower than TRUNCATE command 
+-> TRUNCATE command not free table space from  memory  	    -> DROP command  free the memory because its delete Permanently 							
+->SYNTAX :  TRUNCATE table tablename  			    -> SYNTAX : DROP table table name 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\
+
+
+#Q33. How Can a user get the current SQL version ? 
+
+-> SELECT VERSION() ;
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q34. Difference Between PRIMARY KEY and FOREIGN KEY ? 
+
+PRIMARY KEY                                                FOREIGN KEY 
+  
+-> We can create one primary key in One Table            -> WE can create more than one Foreign key in One table 
+
+-> Primary key  cant  accept null value			 -> Foreign key are  accept null value
+
+-> It cant accept Duplicate value 			-> its accept the duplicate value
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q35. What are aggregate and Scalar Function ?
+
+-> Aggregate Functions :
+	-> These function used to do operations from the values of column and single value it returned
+	-> Examples : -  AVG(), COUNT(), FIRST(), LAST(), MAX() , MIN() , SUM() 
+
+-> Scalar Function : 
+	-> These Functions are based on user input these too return a singla value 
+	-> Examples : - UCASE(), LCASE(), MID(), LEN(), ROUND() , NOW() , FORMAT()
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+#Q36. Which Operator is used in Queries for pattern matching ?
+
+-> LIKE  Operator :  its used to fetch filtered data by searching for particular pattern in the where clause 
+	-> Select * from TABLE where LIKE "pattern" 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+#Q37. Define SQL Order by the statement ? 
+
+-> ORDER BY statement in sql is used to sort the fetched data in aither ascending and descending order in one calumns 
+-> Select * from table  ORDER BY "column"
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>	  
+
+
+#Q38. Explain SQL AND,OR statement with examples ?
+
+-> Basicaly in SQL AND & OR operator using to Filtering the data 
+-> The  AND and OR operators are used with the WHERE clause
+
+-> AND operator : 
+	-> AND Operator when the both  conditions are true then it will display data 
+	-> SELECT * From table where col="dta" AND col="data" 
+
+-> OR Operator : -
+	-> This Operators When a one Conditions is true its display a data 
+	-> SELECT * from WHERE col = "data" OR col = "data" 
+	-> In one condition is true then it will return data 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q39. Why do we use Commit and Rollback Commands ? 
+
+COMMIT 							ROLLBACK 
+
+-> COMMIT Permanently Saves the changes made by the   	-> ROLLBACK undo the changes made by the current transaction
+current transactions 					
+-> The transcations can not undo changes after COMMIT	-> Transcation reaches its previous state State ROLLBACK 
+ is applied 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ 
+
+#Q40. Are NULL values the same as Zero or blank space ? 
+
+-> No Null value means They have no data mean empty 
+-> Zero means  it have data 
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	
+   
+#Q41. What is the need for group functions in SQL ? 
+
+-> In databases management system Group functions mean Aggrigate Functions 
+-> it means wh give multiple input and return a single value
+-> various Group Function : - 
+	-> COUNT()
+	-> SUM()
+	-> AVG()
+	-> MIN()
+	->MAX()
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q42.What is the SQL query to display teh current date ? 
+
+-> CURRENT_DATE() Function is return the current date 
+-> Syntax  -> SELECT CURRENT_DATE()
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q43. How to Copy Table with data  in SQL ?
+
+-> Create Table Tablename (Select * from Copytablename)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#Q44. What is the Sql Query used to create A table with same Structure of Another Table ? 
+
+-> 
+
+
+
+
+
+
+
+
+
+
